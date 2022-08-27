@@ -28,7 +28,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: '2'
           memory: 1g
 
   mysql:
@@ -51,6 +51,14 @@ services:
 
   memcached:
     image: memcached:1.6
+
+  k6:
+    build: k6/
+    tty: true
+    links:
+      - nginx
+    volumes:
+      - ./k6:/home/k6
 
 volumes:
   mysql:
