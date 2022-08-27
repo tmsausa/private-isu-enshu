@@ -1,4 +1,5 @@
-FROM ubuntu
+FROM --platform=linux/x86_64 ubuntu
+
 
 RUN apt-get update
 RUN apt-get install -y gnupg dirmngr ca-certificates
